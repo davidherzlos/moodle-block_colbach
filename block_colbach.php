@@ -51,20 +51,9 @@ class block_colbach extends \block_base {
     }
 
     private function get_html() {
-        $html = '
-        <div class="block_colbach">
-        <ul>
-        <li><a href="/blocks/colbach/view.php?id=1">#001 No puedo ver los materiales del Propedeutico</a></li>
-        <li><a href="/blocks/colbach/view.php?id=2">#002 Curso no permite cargar imagenes</a></li>
-        <li><a href="/blocks/colbach/view.php?id=3">#003 No me acuerdo de mi password</a></li>
-        <li><a href="/blocks/colbach/view.php?id=4">#004 Ayuda para Calculo I</a></li>
-        <li><a href="/blocks/colbach/view.php?id=5">#005 Consulta sobre periodo vacacional</a></li>
-        </ul>
-        <div class="text-center">
-        <a href="/blocks/colbach/new.php" class="btn btn-primary">Crear consulta</a>
-        </div>
-        </div>        
-        ';
-        return $html;
+        global $OUTPUT;
+
+        $context = [];
+        return $OUTPUT->render_from_template('block_colbach/ticketlist', $context);
     }
 }

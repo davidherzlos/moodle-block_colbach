@@ -22,16 +22,16 @@
  * @author David OC
  */
 
-$string['pluginname'] = 'Contact Bachilleres';
+$string['pluginname'] = 'Contacto Bachilleres';
 $string['contentsettings'] = 'Display settings for content region';
 $string['colbach:addinstance'] = 'Add a new colbach block on the page';
 $string['colbach:myaddinstance'] = 'Add a new colbach block to my Dashboard';
 $string['privacy:metadata'] = 'The Bachilleres block only shows information about the logged in user and does not store data itself.';
-$string['username'] = 'Username';
-$string['coursename'] = 'Course';
-$string['timecreated'] = 'Timecreated';
-$string['status'] = 'Status';
-$string['ticketnum'] = 'Ticket No.';
-$string['description'] = 'Description';
-$string['contact'] = 'Contact';
-$string['viewpagetitle'] = 'Contact Bachilleres';
+$string['username'] = 'Nombre de Usuario';
+$string['coursename'] = 'Curso';
+$string['timecreated'] = 'Creada';
+$string['status'] = 'Estado';
+$string['ticketnum'] = 'Consulta No.';
+$string['description'] = 'Descripcion';
+$string['contact'] = 'Contactanos';
+$string['viewpagetitle'] = 'Contacto Bachilleres';

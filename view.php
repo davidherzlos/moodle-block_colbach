@@ -31,7 +31,30 @@ $id = required_param('id', PARAM_INT);
 // Unicamente usuarios logeados pueden ver esta pagina.
 require_login();
 
+// Setear el contexto de la pagina, puede ser de curso, actividad y en este caso de sistema.
+$context = context_system::instance();
+$PAGE->set_context($context);
+
 // Obligatoriamente moodle necesita la url de la pagina actual.
 $PAGE->set_url('/blocks/colbach/view.php', ['id' => $id]);
 
+// La pagina necesita un layout (incourse, admin, default, course, report, etc).
+$PAGE->set_pagelayout('standard');
+
+// Setear el titulo del documento html.
+$PAGE->set_title(get_string('viewpagetitle', 'block_colbach'));
+
+// Heading de la pagina (titulo en H1).
+$PAGE->set_heading(get_string('ticketnum', 'block_colbach'));
+
+// Aqui comenzamos a generar output.
+echo $OUTPUT->header();
+
+// HTML del ticket.
+$ticket = [];
+$html = $OUTPUT->render_from_template('block_colbach/ticket', $ticket);
+echo $OUTPUT->box($html, 'generalbox center clearfix');
+
+// Footer, importante no omitirlo y si se requiere ocultarlo, debe ser por css.
+echo $OUTPUT->footer();
 
