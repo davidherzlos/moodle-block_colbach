@@ -35,3 +35,5 @@ $string['ticketnum'] = 'Consulta No.';
 $string['description'] = 'Descripcion';
 $string['contact'] = 'Contactanos';
 $string['viewpagetitle'] = 'Contacto Bachilleres';
+$string['alltickets'] = 'Todos';
+$string['ticket'] = 'Consulta';

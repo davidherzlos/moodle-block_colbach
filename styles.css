@@ -1,0 +1,26 @@
+.block-colbach .tickets {
+    list-style: none;
+}
+.block-colbach .tickets li {
+    padding: 4px 0;
+}
+.block-colbach .summary {
+    border: 1px solid #e3e3e3;
+    padding: 16px;
+    border-radius: 5px;
+}
+.block-colbach .summary > p {
+    margin: 0;
+}
+.block-colbach .details {
+    padding: 16px;
+    background: #f8f8f8;
+    border-radius: 4px;
+    border: 1px solid #e3e3e3;
+}
+.block-colbach .details h3 {
+    font-size: 1.5rem;
+}
+.block-colbach .details h4 {
+    font-size: 1rem;
+}

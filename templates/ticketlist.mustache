@@ -16,17 +16,19 @@
     Example context (json):
     {}
 }}
-<div class="block_colbach-{{uniqid}} block-colbach">
-    <ul>
-        <li><a href="/blocks/colbach/view.php?id=1">#001 No puedo ver los materiales del Propedeutico</a></li>
-        <li><a href="/blocks/colbach/view.php?id=2">#002 Curso no permite cargar imagenes</a></li>
-        <li><a href="/blocks/colbach/view.php?id=3">#003 No me acuerdo de mi password</a></li>
-        <li><a href="/blocks/colbach/view.php?id=4">#004 Ayuda para Calculo I</a></li>
-        <li><a href="/blocks/colbach/view.php?id=5">#005 Consulta sobre periodo vacacional</a></li>
+<div id="block_colbach-{{uniqid}}" class="block-colbach block-cards">
+    <ul class="tickets">
+        {{# tickets }}
+        <li>
+            <i class="fa fa-user-o" aria-hidden="true"></i>
+            <a href="/blocks/colbach/view.php?id={{ id }}">{{ title }}</a>
+        </li>
+        {{/ tickets }}
     </ul>
     <div class="text-center">
         <a href="/blocks/colbach/new.php" class="btn btn-primary">
             {{#str}} contact, block_colbach {{/str}}
+            <i class="ml-1 fa fa-phone-square" aria-hidden="true"></i>
         </a>
     </div>
 </div>

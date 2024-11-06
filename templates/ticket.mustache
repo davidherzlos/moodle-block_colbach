@@ -16,22 +16,17 @@
     Example context (json):
     {}
 }}
-
-
-
-
-<div class="block_colbach-{{uniqid}} block-colbach">
-<div class="container">
-    <div class="text-right">
-        <p>{{#str}} username, block_colbach {{/str}}: Carlos Ramirez</p>
-        <p>{{#str}} coursename, block_colbach {{/str}}: Propedeutico</p>
-        <p>{{#str}} timecreated, block_colbach {{/str}}: 31 octubre 2024</p>
-        <p>{{#str}} status, block_colbach {{/str}}: En espera</p>
+<div id="block_colbach-{{uniqid}}" class="block-colbach block-cards">
+    <div class="container">
+        <div class="text-left summary">
+            <p><strong>{{#str}} username, block_colbach {{/str}}:</strong> {{ username }}</p>
+            <p><strong>{{#str}} coursename, block_colbach {{/str}}:</strong> {{ coursename }}</p>
+            <p><strong>{{#str}} timecreated, block_colbach {{/str}}:</strong> {{ timecreated }}</p>
+            <p><strong>{{#str}} status, block_colbach {{/str}}:</strong> {{ status }}</p>
+        </div>
+        <div class="mt-2 details">
+            <h3>{{ title }}</h3>
+            {{ description }}
+        </div>
     </div>
-</div>
-
-<span>{{#str}} ticketnum, block_colbach {{/str}} 1</span>
-<h3>Problema con el curso propedeutico</h3>
-<h2>{{#str}} description, block_colbach {{/str}}</h2>
-<p>Tengo un problema para cargar el curso propedeutico y se tarda mas de 20 minutos en cargar la pagina</p>
 </div>

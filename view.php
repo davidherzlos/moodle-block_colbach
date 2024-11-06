@@ -36,7 +36,9 @@ $context = context_system::instance();
 $PAGE->set_context($context);
 
 // Obligatoriamente moodle necesita la url de la pagina actual.
-$PAGE->set_url('/blocks/colbach/view.php', ['id' => $id]);
+$url = new \moodle_url('/blocks/colbach/view.php');
+$url->param('id', $id);
+$PAGE->set_url($url);
 
 // La pagina necesita un layout (incourse, admin, default, course, report, etc).
 $PAGE->set_pagelayout('standard');
@@ -45,16 +47,38 @@ $PAGE->set_pagelayout('standard');
 $PAGE->set_title(get_string('viewpagetitle', 'block_colbach'));
 
 // Heading de la pagina (titulo en H1).
-$PAGE->set_heading(get_string('ticketnum', 'block_colbach'));
+$PAGE->set_heading(get_string('ticketnum', 'block_colbach'). $id);
+
+// Agregamos migajas de pan.
+
+// Nodo padre.
+$previousurl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/my';
+$previousnode = $PAGE->navigation->add(
+    get_string('alltickets', 'block_colbach'),
+    new \moodle_url($previousurl),
+    navigation_node::TYPE_CONTAINER
+);
+
+// Nodo actual.
+$currentnode = $previousnode->add(
+    get_string('ticket', 'block_colbach'),
+    new \moodle_url($url),
+);
+$currentnode->make_active();
 
 // Aqui comenzamos a generar output.
 echo $OUTPUT->header();
 
 // HTML del ticket.
-$ticket = [];
+$ticket = new \stdClass();
+$ticket->username = "Carlos Ramirez";
+$ticket->coursename = "Curso propedeutico";
+$ticket->timecreated = '06 Noviembre 2024';
+$ticket->status = 'En espera';
+$ticket->title = "Problema con el curso";
+$ticket->description = 'No puedo ingresar al curso propedeutico. Por favor ayuda.';
 $html = $OUTPUT->render_from_template('block_colbach/ticket', $ticket);
 echo $OUTPUT->box($html, 'generalbox center clearfix');
 
 // Footer, importante no omitirlo y si se requiere ocultarlo, debe ser por css.
 echo $OUTPUT->footer();
-
