@@ -51,13 +51,9 @@ class block_colbach extends \block_base {
     }
 
     private function get_html() {
-        global $OUTPUT;
+        global $OUTPUT, $DB;
 
-        $tickets = [
-            (object) ['id' => 1, 'title' => 'Problema con el curso propedeutico'],
-            (object) ['id' => 2, 'title' => 'Problema con las imagenes'],
-            (object) ['id' => 3, 'title' => 'Periodo vacacional'],
-        ];
+        $tickets = array_values($DB->get_records('block_colbach_inquiries'));
         return $OUTPUT->render_from_template('block_colbach/ticketlist', ['tickets' => $tickets]);
     }
 }

@@ -22,6 +22,6 @@
  * @author David OC
  */
 
-$plugin->version = 2024091603;
+$plugin->version = 2024091604;
 $plugin->requires = 2022112814;
 $plugin->component = 'block_colbach';
