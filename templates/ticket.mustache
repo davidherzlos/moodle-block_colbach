@@ -18,6 +18,9 @@
 }}
 <div id="block_colbach-{{uniqid}}" class="block-colbach block-cards">
     <div class="container">
+        <div class="text-right mb-2">
+            <a class="btn btn-secondary" href="/blocks/colbach/edit.php?id={{ id }}">Editar</a>
+        </div>
         <div class="text-left summary">
             <p><strong>{{#str}} username, block_colbach {{/str}}:</strong> {{ username }}</p>
             <p><strong>{{#str}} coursename, block_colbach {{/str}}:</strong> {{ coursename }}</p>
@@ -26,7 +29,7 @@
         </div>
         <div class="mt-2 details">
             <h3>{{ title }}</h3>
-            {{ description }}
+            {{{ description }}}
         </div>
     </div>
 </div>

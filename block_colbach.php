@@ -21,9 +21,6 @@
  * @copyright 2024 Colegio de Bachilleres
  * @author David OC
  */
-
-defined('MOODLE_INTERNAL') || die();
-
 class block_colbach extends \block_base {
 
     public function init() {
@@ -38,7 +35,7 @@ class block_colbach extends \block_base {
         }
 
         // Si ya existe el contenido, retorna el contenido.
-        if ($this->content !== NULL) {
+        if ($this->content !== null) {
             return $this->content;
         }
 
@@ -52,33 +49,7 @@ class block_colbach extends \block_base {
 
     private function get_html() {
         global $OUTPUT, $DB;
-
         $tickets = array_values($DB->get_records('block_colbach_inquiries'));
         return $OUTPUT->render_from_template('block_colbach/ticketlist', ['tickets' => $tickets]);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

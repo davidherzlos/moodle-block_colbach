@@ -69,14 +69,18 @@ $currentnode->make_active();
 // Aqui comenzamos a generar output.
 echo $OUTPUT->header();
 
-// HTML del ticket.
-$ticket = new \stdClass();
-$ticket->username = "Carlos Ramirez";
-$ticket->coursename = "Curso propedeutico";
-$ticket->timecreated = '06 Noviembre 2024';
-$ticket->status = 'En espera';
-$ticket->title = "Problema con el curso";
-$ticket->description = 'No puedo ingresar al curso propedeutico. Por favor ayuda.';
+// Leemos el ticket usando el id pasado como parametro.
+$ticket = $DB->get_record('block_colbach_inquiries', ['id' => $id], '*', MUST_EXIST);
+
+// Leemos el usuario del ticket.
+$user = $DB->get_record('user', ['id' => $ticket->userid], '*', MUST_EXIST);
+
+// Sumamos propiedades del usuario para los datos del ticket.
+$ticket->username = $user->firstname . ' ' . $user->lastname;
+$ticket->coursename = $COURSE->fullname;
+$ticket->timecreated = userdate($ticket->timecreated);
+
+// Renderizamos el ticket en la pagina.
 $html = $OUTPUT->render_from_template('block_colbach/ticket', $ticket);
 echo $OUTPUT->box($html, 'generalbox center clearfix');
 
