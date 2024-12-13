@@ -22,6 +22,6 @@
  * @author David OC
  */
 
-$plugin->version = 2024091604;
-$plugin->requires = 2022112814;
+$plugin->version = 2024091615;
+$plugin->requires = 2022112811;              // 20221128      = branching date YYYYMMDD - do not modify!
 $plugin->component = 'block_colbach';
